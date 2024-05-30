@@ -1,0 +1,7 @@
+{
+  "name": "cbl-ionic-hotels",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
