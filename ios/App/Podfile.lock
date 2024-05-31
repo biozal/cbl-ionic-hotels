@@ -26,7 +26,7 @@ DEPENDENCIES:
   - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
   - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
   - CblIonic (from `../../../cbl-ionic`)
-  - CbliteSwiftJsLib (from `../../../../cbl-js-swift`)
+  - CbliteSwiftJsLib (from `../../../cbl-js-swift`)
 
 SPEC REPOS:
   trunk:
@@ -48,7 +48,7 @@ EXTERNAL SOURCES:
   CblIonic:
     :path: "../../../cbl-ionic"
   CbliteSwiftJsLib:
-    :path: "../../../../cbl-js-swift"
+    :path: "../../../cbl-js-swift"
 
 SPEC CHECKSUMS:
   Capacitor: 7d42085cb786b2d3ea9ac8a17ebd7e3305be7b72
@@ -61,6 +61,6 @@ SPEC CHECKSUMS:
   CbliteSwiftJsLib: 6d77def88c1b97297cd8cf1a06baed3ec8ee7187
   CouchbaseLite-Swift-Enterprise: 7fe8b730168a14ec96adcefb89a0109a4ee5b9f0
 
-PODFILE CHECKSUM: d097a0b4af8a63b817ffb39e3e4bc511f58c8f03
+PODFILE CHECKSUM: 01b1963e061cc5dda35cff048fffecbcd621aa66
 
 COCOAPODS: 1.14.3
