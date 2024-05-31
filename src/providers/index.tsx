@@ -1,2 +1,2 @@
-export { default as CBLiteProvider } from './CBLiteProvider';
+export { default as DatabaseServiceProvider } from './DatabaseServiceProvider';
 export { default as DatabaseContext } from './DatabaseServiceContext';
