@@ -5,6 +5,7 @@
 import '@testing-library/jest-dom/extend-expect';
 
 // Mock matchmedia
+/*
 window.matchMedia = window.matchMedia || function() {
   return {
       matches: false,
@@ -12,3 +13,4 @@ window.matchMedia = window.matchMedia || function() {
       removeListener: function() {}
   };
 };
+*/

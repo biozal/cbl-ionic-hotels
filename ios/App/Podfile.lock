@@ -1,0 +1,66 @@
+PODS:
+  - Capacitor (5.7.5):
+    - CapacitorCordova
+  - CapacitorApp (5.0.7):
+    - Capacitor
+  - CapacitorCordova (5.7.5)
+  - CapacitorHaptics (5.0.7):
+    - Capacitor
+  - CapacitorKeyboard (5.0.8):
+    - Capacitor
+  - CapacitorStatusBar (5.0.7):
+    - Capacitor
+  - CblIonic (0.1.6):
+    - Capacitor
+    - CbliteSwiftJsLib
+    - CouchbaseLite-Swift-Enterprise (~> 3.1)
+  - CbliteSwiftJsLib (0.1.6):
+    - CouchbaseLite-Swift-Enterprise (~> 3.1)
+  - CouchbaseLite-Swift-Enterprise (3.1.7)
+
+DEPENDENCIES:
+  - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorApp (from `../../node_modules/@capacitor/app`)"
+  - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorHaptics (from `../../node_modules/@capacitor/haptics`)"
+  - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
+  - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
+  - CblIonic (from `../../../cbl-ionic`)
+  - CbliteSwiftJsLib (from `../../../../cbl-js-swift`)
+
+SPEC REPOS:
+  trunk:
+    - CouchbaseLite-Swift-Enterprise
+
+EXTERNAL SOURCES:
+  Capacitor:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorApp:
+    :path: "../../node_modules/@capacitor/app"
+  CapacitorCordova:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorHaptics:
+    :path: "../../node_modules/@capacitor/haptics"
+  CapacitorKeyboard:
+    :path: "../../node_modules/@capacitor/keyboard"
+  CapacitorStatusBar:
+    :path: "../../node_modules/@capacitor/status-bar"
+  CblIonic:
+    :path: "../../../cbl-ionic"
+  CbliteSwiftJsLib:
+    :path: "../../../../cbl-js-swift"
+
+SPEC CHECKSUMS:
+  Capacitor: 7d42085cb786b2d3ea9ac8a17ebd7e3305be7b72
+  CapacitorApp: 17fecd0e6cb23feafac7eb0939417389038b0979
+  CapacitorCordova: c946a6052b547e1e185fc46862003f7b9130ead1
+  CapacitorHaptics: 7c7c206f0c96a628fed073830c96d28c4b2e772e
+  CapacitorKeyboard: aec619a578235c6ce279075009a2689c2cf5c42c
+  CapacitorStatusBar: f390fbb49b82ffb754ea4b3cf71dc8b048baf3e7
+  CblIonic: cbef8475dd64494a797a83902a8b3cc8a5341875
+  CbliteSwiftJsLib: 6d77def88c1b97297cd8cf1a06baed3ec8ee7187
+  CouchbaseLite-Swift-Enterprise: 7fe8b730168a14ec96adcefb89a0109a4ee5b9f0
+
+PODFILE CHECKSUM: d097a0b4af8a63b817ffb39e3e4bc511f58c8f03
+
+COCOAPODS: 1.14.3
