@@ -6,15 +6,15 @@ import {
   MutableDocument,
   LogDomain,
   LogLevel,
-} from "cblite";
+} from 'cbl-ionic';
 
-import { Hotel } from "../models/hotel";
+import { Hotel } from '../models/hotel';
 
 export class DatabaseService {
   private database: Database;
   private collection: Collection;
-  private DOC_TYPE_HOTEL = "hotel";
-  private DOC_TYPE_BOOKMARKED_HOTELS = "bookmarked_hotels";
+  private DOC_TYPE_HOTEL = 'hotel';
+  private DOC_TYPE_BOOKMARKED_HOTELS = 'bookmarked_hotels';
   private bookmarkDocument: MutableDocument;
 
   constructor() {}
@@ -54,11 +54,11 @@ export class DatabaseService {
 
       const dc = new DatabaseConfiguration();
       dc.setDirectory(directoryPath);
-      dc.setEncryptionKey("8e31f8f6-60bd-482a-9c70-69855dd02c39");
+      dc.setEncryptionKey('8e31f8f6-60bd-482a-9c70-69855dd02c39');
 
-      this.database = new Database("travel", dc);
+      this.database = new Database('travel', dc);
 
-      //turned on database logging to verbose to see information in IDE
+      //turned on database logging too verbose to see information in IDE
       this.database.setLogLevel(LogDomain.ALL, LogLevel.VERBOSE);
 
       await this.database.open();
@@ -69,15 +69,15 @@ export class DatabaseService {
 
       const len = (await this.getAllHotels()).length;
       if (len === 0) {
-        const hotelFile = await import("../data/hotels");
+        const hotelFile = await import('../data/hotels');
 
         for (let hotel of hotelFile.hotelData) {
           let doc = new MutableDocument();
-          doc.setNumber("id", hotel.id);
-          doc.setString("name", hotel.name);
-          doc.setString("address", hotel.address);
-          doc.setString("phone", hotel.phone);
-          doc.setString("type", this.DOC_TYPE_HOTEL);
+          doc.setNumber('id', hotel.id);
+          doc.setString('name', hotel.name);
+          doc.setString('address', hotel.address);
+          doc.setString('phone', hotel.phone);
+          doc.setString('type', this.DOC_TYPE_HOTEL);
 
           //this.database.save(doc);   
           //we save documents to collections now and this is an async operation
@@ -94,7 +94,7 @@ export class DatabaseService {
     const hotelResults = await this.getAllHotels();
 
     // Get all bookmarked hotels
-    let bookmarks = this.bookmarkDocument.getArray("hotels") as number[];
+    let bookmarks = this.bookmarkDocument.getArray('hotels') as number[];
 
     let hotelList: Hotel[] = [];
     for (let key in hotelResults) {
@@ -102,7 +102,7 @@ export class DatabaseService {
       // [ { "_": { id: "1", name: "Matt" } }, { "_": { id: "2", name: "Max" } }]
 
       //using collection name now, so need to look for the documents using that
-      let singleHotel = hotelResults[key]["_default"] as Hotel;
+      let singleHotel = hotelResults[key]['_default'] as Hotel;
       //let singleHotel = hotelResults[key]["_"] as Hotel;
 
       // Set bookmark status
@@ -114,13 +114,13 @@ export class DatabaseService {
   }
 
   public async searchHotels(name: String): Promise<Hotel[]> {
-    //you can still use _ for the collection name it it should default to
+    //you can still use _ for the collection name it should default to
     // _default._default, but it is better to be explicit
     const query = this.database.createQuery(
       `SELECT * FROM _ WHERE name LIKE '%${name}%' AND type = '${this.DOC_TYPE_HOTEL}' ORDER BY name`
     );
     const results = await query.execute();
-    //const results = await (await query.execute()).allResults(); - we don't need double awaits in new framework
+    //const results = await (await query.execute()).allResults(); - we don't need to double awaits in new framework
 
     let filteredHotels: Hotel[] = [];
     for (const key in results) {
@@ -134,9 +134,9 @@ export class DatabaseService {
   }
 
   public async bookmarkHotel(hotelId: number) {
-    let hotelArray = this.bookmarkDocument.getArray("hotels") as number[];
+    let hotelArray = this.bookmarkDocument.getArray('hotels') as number[];
     hotelArray.push(hotelId);
-    this.bookmarkDocument.setArray("hotels", hotelArray);
+    this.bookmarkDocument.setArray('hotels', hotelArray);
 
     //we use collections to save documents now
     await this.collection.save(this.bookmarkDocument);
@@ -145,9 +145,9 @@ export class DatabaseService {
 
   // Remove bookmarked hotel from bookmark document
   public async unbookmarkHotel(hotelId: number) {
-    let hotelArray = this.bookmarkDocument.getValue("hotels") as number[];
+    let hotelArray = this.bookmarkDocument.getValue('hotels') as number[];
     hotelArray = hotelArray.filter((id) => id !== hotelId);
-    this.bookmarkDocument.setArray("hotels", hotelArray);
+    this.bookmarkDocument.setArray('hotels', hotelArray);
 
     await this.collection.save(this.bookmarkDocument);
     //this.database.save(this.bookmarkDocument);
@@ -167,8 +167,8 @@ export class DatabaseService {
     let mutableDocument: MutableDocument;
     if (resultSet.length === 0) {
       mutableDocument = new MutableDocument()
-        .setString("type", this.DOC_TYPE_BOOKMARKED_HOTELS)
-        .setArray("hotels", new Array());
+        .setString('type', this.DOC_TYPE_BOOKMARKED_HOTELS)
+        .setArray('hotels', new Array());
       await this.collection.save(mutableDocument);
       //this.database.save(mutableDocument);
     } else {
